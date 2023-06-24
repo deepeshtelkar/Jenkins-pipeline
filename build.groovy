@@ -13,7 +13,7 @@ pipeline {
         
         stage('Build with Maven') {
             steps {
-                sh 'mvn package'
+                sh '/var/jenkins_home/tools/hudson.tasks.Maven_MavenInstallation/mvn/bin/mvn package'
             }
         }
         
