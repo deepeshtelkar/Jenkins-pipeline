@@ -27,10 +27,10 @@ pipeline {
             steps {
                 withCredentials([file(credentialsId: 'aws-ec2', variable: 'PEM_FILE')]) {
                     // Copy JAR file to AWS server
-                    sh "scp -i $PEM_FILE -o StrictHostKeyChecking=no target/*.jar admin@ec2-18-233-157-228.compute-1.amazonaws.com:/app/deployed.jar"
+                    sh "scp -i $PEM_FILE -o StrictHostKeyChecking=no target/*.jar admin@ec2-54-197-39-107.compute-1.amazonaws.com:/app/deployed.jar"
                     
                     // SSH into AWS server and deploy the JAR file
-                    sh "ssh -i $PEM_FILE -o StrictHostKeyChecking=no admin@ec2-18-233-157-228.compute-1.amazonaws.com 'java -jar /app/deployed.jar'"
+                    sh "ssh -i $PEM_FILE -o StrictHostKeyChecking=no admin@ec2-54-197-39-107.compute-1.amazonaws.com 'java -jar /app/deployed.jar'"
                 }
             }
         }
